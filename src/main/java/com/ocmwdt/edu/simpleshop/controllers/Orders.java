@@ -1,6 +1,5 @@
 package com.ocmwdt.edu.simpleshop.controllers;
 
-import com.ocmwdt.edu.simpleshop.models.Customer;
 import com.ocmwdt.edu.simpleshop.models.Order;
 import com.ocmwdt.edu.simpleshop.services.OrderSvc;
 import lombok.RequiredArgsConstructor;
@@ -27,9 +26,14 @@ public class Orders {
         return orderSvc.getAll(cusId);
     }
 
+    @GetMapping
+    public List<Order> getAll() {
+        return orderSvc.getAll();
+    }
+
     @GetMapping("/{id}")
-    public Customer get(@PathVariable("id") Long cusId) {
-        return orderSvc.get(cusId);
+    public Order get(@PathVariable("id") Long orderId) {
+        return orderSvc.get(orderId);
     }
 
     @PostMapping

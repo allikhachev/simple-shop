@@ -20,6 +20,9 @@ public class CustomerSvc {
     }
 
     public Customer get(Long cusId) {
+        if (cusId == null) {
+            throw new IllegalStateException("Customer id is not set");
+        }
         return repo.findById(cusId)
                 .orElseThrow(() -> new NotFound(NO_CUSTOMER.formatted(cusId)));
     }
