@@ -23,10 +23,6 @@ public class OrderSvc {
     private final CustomerSvc customers;
 
     public List<Order> getAll(Long cusId) {
-        return emptyList();
-    }
-
-    public List<Order> getAll() {
         return repo.findAll();
     }
 
@@ -35,8 +31,8 @@ public class OrderSvc {
                 .orElseThrow(() -> new NotFound(NO_ORDER.formatted(orderId)));
     }
 
-    public void add(Order customer) {
-        repo.save(customer);
+    public void add(Order order) {
+        repo.save(order);
     }
 
     public void update(Long orderId, Order order) {

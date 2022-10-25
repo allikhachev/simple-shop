@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Getter @Setter
-@Table(name = "orders")
+@Table(name = "order_items")
 public class OrderItem {
     @Id
     @GeneratedValue

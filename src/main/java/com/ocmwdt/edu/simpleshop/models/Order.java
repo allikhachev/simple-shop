@@ -3,6 +3,7 @@ package com.ocmwdt.edu.simpleshop.models;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -25,7 +26,7 @@ public class Order {
     @JoinColumn(name = "customerId")
     private Customer customer;
     //https://vladmihalcea.com/the-best-way-to-map-a-onetomany-association-with-jpa-and-hibernate/
-    @OneToMany(orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
     @JoinColumn(name = "orderId")
     private List<OrderItem> items = new ArrayList<>();
 }

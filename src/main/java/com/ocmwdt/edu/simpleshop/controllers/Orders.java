@@ -22,13 +22,8 @@ public class Orders {
     private final OrderSvc orderSvc;
 
     @GetMapping
-    public List<Order> getAll(@RequestParam("cus") Long cusId) {
+    public List<Order> getAll(@RequestParam(value = "cus", required = false) Long cusId) {
         return orderSvc.getAll(cusId);
-    }
-
-    @GetMapping
-    public List<Order> getAll() {
-        return orderSvc.getAll();
     }
 
     @GetMapping("/{id}")
